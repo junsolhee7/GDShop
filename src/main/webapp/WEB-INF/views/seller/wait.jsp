@@ -162,6 +162,17 @@ pageEncoding="UTF-8"%>
 						<li class="nav-item"><a class="nav-link" href="./pay">결제완료</a></li>
 
 					</ul>
+					<div class="col-12">
+	                    <div class="input-group">
+	                        <select name="kind" class="form-select" id="kind">
+	                            <option class="kinds" value="id">ID</option>
+	                            <option class="kinds" value="name">이름</option>
+	                            <option class="kinds" value="email">Email</option>
+	                        </select>
+	                      <input type="text" name="search" value="" class="form-control" id="search">
+	                      <button type="button" class="btn btn-primary" id="search_btn">검색</button>
+	                    </div>
+                    </div>
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -198,18 +209,18 @@ pageEncoding="UTF-8"%>
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
 								<li class="page-item" value="${pager.pre}" id="pre"><a
-									class="page-link" href="./seller?wait=${pager.page-1}"
+									class="page-link" href="./wait?page=${pager.page-1}"
 									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 								</a></li>
 
 								<c:forEach var="i" begin="${pager.startNum}"
 									end="${pager.lastNum}">
 									<li class="page-item ${pager.page==i? 'active':''}"><a
-										class="page-link" href="./seller?wait=${i}">${i}</a></li>
+										class="page-link" href="./wait?page=${i}">${i}</a></li>
 								</c:forEach>
 
 								<li class="page-item ${pager.next?'':'disabled'}" id="next">
-									<a class="page-link" href="./seller?Wait=${pager.page+1}"
+									<a class="page-link" href="./wait?page=${pager.page+1}"
 									aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 								</a>
 								</li>
